@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Index</title>
+    <script>
+        window.onload = function() {
+            // Extract the subfolder name from the URL path
+            var path = window.location.pathname;
+            // Remove leading and trailing slashes
+            path = path.replace(/^\/+|\/+$/g, '');
+            // If the path is not empty (i.e., a subfolder name is provided), redirect to its index.html file
+            if (path) {
+                var targetURL = path + "/index.html";
+                // Redirect to the target URL
+                window.location.replace(targetURL);
+            } else {
+                // Display the content of index.html when no subfolder name is provided
+                document.body.innerHTML = `
+                    <h1>No subfolder specified.</h1>
+                    <p>This is the default content of the index.html page.</p>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Content will be dynamically replaced if JavaScript is enabled -->
+</body>
+</html>
+
